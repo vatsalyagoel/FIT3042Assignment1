@@ -1,0 +1,1 @@
+void rle_packbit_decompress(FILE *rle_file_pointer, unsigned char *current_frame_data, int dimensions);
