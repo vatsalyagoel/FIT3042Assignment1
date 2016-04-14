@@ -1,6 +1,24 @@
 #include <stdio.h>
 #include "decompress.h"
 
+/*********************************************************
+*      DECOMPRESS PACKBIT DATA USING VARIANT SCHEME
+*********************************************************/
+
+/*********************************************************
+* Desc   : Function to read a file and uncompress 1 frame 
+*          of VPackbit Data which is copied to the pointer 
+*          passed to the function
+*
+* Params : *rle_file_pointer   - file pointer to the input
+*                                stream
+*          *current_frame_data - Byte array to store the 
+*                                decompressed data 
+*          dimensions          - The width * height value 
+*                                of the image/video
+*        
+* Return : None 
+*********************************************************/
 void rle_packbit_decompress(FILE *rle_file_pointer, unsigned char *current_frame_data, int dimensions)
 {    
    	int count_char;

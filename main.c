@@ -4,26 +4,38 @@
 #include "rle.h"
 #include "helpers.h"
 
+/*********************************************************
+*   DRIVER CLASS WHERE EXECUTION BEGINS
+*********************************************************/
+
 /* Flag for optional arguments */
 static int tween_flag = 0;
 static unsigned long scale_factor = 1, tween_factor;
 static char *prefix, *rlefile;
 static Rle *rle;
 
+/*********************************************************
+* Desc   : Function to verity input params and act 
+*		   accordingly
+* Params : argc    - Number of arguments passed
+*		   *argv[] - strings of arguments
+*
+* Return : 0 if succcessfully completed/No errors
+*********************************************************/
 int main(int argc, char *argv[])
 {
 	char *inptr;
 	long int input;
 
-	/* Setup the streams */
-	freopen( "./logs/error.log", "w", stderr );
+	/* Setup the stream for error logging*/
+	freopen( "./logs/error.log", "w+", stderr );
 
 	/* Send the streams some text */ 
 	log_error("Start of rledecode" );
 	
 	if(argc < 2) /* 2 required arguments */
 	{
-		//print_usage() /* printing how to use the application */
+		print_usage(); /* printing how to use the application */
 		return 0;
 	}
 	else
